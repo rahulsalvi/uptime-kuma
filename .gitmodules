@@ -1,0 +1,6 @@
+[submodule "ext/pki"]
+	path = ext/pki
+	url = ../pki.git
+[submodule "ext/docker-compose-snippets"]
+	path = ext/docker-compose-snippets
+	url = ../docker-compose-snippets.git

@@ -1,0 +1,27 @@
+# vim: ft=yaml.docker-compose
+name: uptime-kuma
+
+include:
+  - ext/docker-compose-snippets/tailscale-caddy.yaml
+  - ext/docker-compose-snippets/simple-reverse-proxy.yaml
+
+services:
+  uptime-kuma:
+    image: ghcr.io/rahulsalvi/uptime-kuma:latest
+    environment:
+      HOST: 127.0.0.1
+      PORT: 8080
+    volumes:
+      - uptime-kuma-data:/app/data
+    restart: unless-stopped
+    extends:
+      file: ext/docker-compose-snippets/tailscale-app-base.yaml
+      service: tailscale-app-base
+
+volumes:
+  uptime-kuma-data:
+
+
+secrets:
+  ts_authkey:
+    file: ./ts_authkey.txt
