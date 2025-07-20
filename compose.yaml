@@ -4,6 +4,7 @@ name: uptime-kuma
 include:
   - ext/docker-compose-snippets/tailscale-caddy.yaml
   - ext/docker-compose-snippets/simple-reverse-proxy.yaml
+  - ext/docker-compose-snippets/volume-backup-defaults.yaml
 
 services:
   uptime-kuma:
@@ -18,6 +19,13 @@ services:
     extends:
       file: ext/docker-compose-snippets/tailscale-app-base.yaml
       service: tailscale-app-base
+
+  backup:
+    volumes:
+      - uptime-kuma-data:/backup:ro
+    extends:
+      file: ext/docker-compose-snippets/volume-backup.yaml
+      service: aws-backup-default
 
 volumes:
   uptime-kuma-data:
