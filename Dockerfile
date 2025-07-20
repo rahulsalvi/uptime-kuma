@@ -1,4 +1,4 @@
-FROM louislam/uptime-kuma:1.23.16
+FROM louislam/uptime-kuma:2.0.0-beta.3
 
 RUN apt-get update \
   && apt-get install -y ca-certificates \
