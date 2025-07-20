@@ -1,2 +1,2 @@
 .env
-ts_authkey.txt
+secrets*
