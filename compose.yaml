@@ -1,4 +1,5 @@
 # vim: ft=yaml.docker-compose
+---
 name: uptime-kuma
 
 include:
@@ -12,7 +13,6 @@ services:
     environment:
       HOST: 127.0.0.1
       PORT: 8080
-      NODE_OPTIONS: --use-openssl-ca
     volumes:
       - uptime-kuma-data:/app/data
     restart: unless-stopped

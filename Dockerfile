@@ -5,3 +5,5 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 COPY ext/pki/tls/*.crt /usr/local/share/ca-certificates
 RUN update-ca-certificates
+
+ENV NODE_OPTIONS=--use-openssl-ca
