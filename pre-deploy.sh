@@ -19,7 +19,7 @@ if ! grep -q "TS_AUTHKEY" .env; then
         RC=1
     else
         echo "Adding TS_AUTHKEY to .env"
-        echo "TS_AUTHKEY=$(get-authkey -tags "$TS_TAGS" -ephemeral -preauth)" >>.env
+        echo "TS_AUTHKEY=$(get-authkey -tags "$TS_TAGS" -preauth)" >>.env
     fi
 fi
 
